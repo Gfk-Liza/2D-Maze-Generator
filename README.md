@@ -2,8 +2,11 @@
 
 Usage
 generation(width, height)
+
 Be sure to use natural numbers for width and height.
+
 When executed, it will output the maze as a list type consisting of 0 and 1.
+
 
 Example
 generation(11, 11)
