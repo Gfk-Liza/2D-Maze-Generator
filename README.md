@@ -1,4 +1,4 @@
-# Maze-generation-function
+# Maze-generater
 
 Usage
 generation(width, height)
