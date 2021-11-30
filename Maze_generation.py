@@ -46,7 +46,9 @@ def search(map_, xco, yco, mode):
             yTmolo.append(yco)
     # Output
     if mode == 1:
-        return len(xmolo)
+        if len(xmolo) == 0:
+            return True
+        return False
     if len(xmolo) == 0:
         return
     j = random.randint(0, (len(xmolo) - 1))
@@ -72,7 +74,7 @@ def generation(width, height):  # The width and height must be natural numbers.
     previously_on_x = [0]
     previously_on_y = [0]
     # Generating Main
-    while not((x_c + y_c == 0) and (search(world_map, x_c, y_c, 1) == 0)):
+    while not((x_c + y_c == 0) and search(world_map, x_c, y_c, 1)):
         # Get the coordinates of the next move.
         _xy = search(world_map, x_c, y_c, 2)
         if _xy is None:
@@ -82,11 +84,9 @@ def generation(width, height):  # The width and height must be natural numbers.
             x_c = previously_on_x[-1]
             y_c = previously_on_y[-1]
         else:
-            index_1 = world_map[_xy[1]][:_xy[0]] + \
-                '0' + world_map[_xy[1]][(_xy[0] + 1):]
+            index_1 = world_map[_xy[1]][:_xy[0]] + '0' + world_map[_xy[1]][(_xy[0] + 1):]
             world_map[_xy[1]] = index_1
-            index_2 = world_map[_xy[3]][:_xy[2]] + \
-                '0' + world_map[_xy[3]][(_xy[2] + 1):]
+            index_2 = world_map[_xy[3]][:_xy[2]] + '0' + world_map[_xy[3]][(_xy[2] + 1):]
             world_map[_xy[3]] = index_2
             # Record the route you've taken.
             previously_on_x.append(_xy[0])
