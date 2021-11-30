@@ -1,4 +1,4 @@
-# Maze-generater
+# 2D-Maze-Generator
 
 Usage
 generation(width, height)
